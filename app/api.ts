@@ -1,5 +1,6 @@
 export interface Profile {
 	id: string
+	rank: number
 	handle: string
 	followersCount: string
 }
