@@ -29,7 +29,13 @@ export default function Index() {
 	return (
 		<main>
 			<div className="container">
+
 				<header>
+					<div className="title">
+						<h1>Lens Global Trust Index</h1>
+					</div>
+
+					<div className='strategies'>
 					<button
 						className="btn"
 						onClick={() => navigate('?strategy=1')}
@@ -54,6 +60,7 @@ export default function Index() {
 					>
 						Strategy 4
 					</button>
+					</div>
 				</header>
 
 				<div className="profiles-grid">

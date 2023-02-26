@@ -118,13 +118,19 @@ main {
 	padding: 60px 0;
 }
 
-header {
+.title {
+	font-size: 1.5rem;
+	font-weight: 100;
+	margin-bottom: 2rem;
+}
+
+.strategies {
 	display: flex;
 	align-items: flex-start;
 	gap: 12px;
 }
 
-header details {
+.strategies details {
 	margin-left: auto;
 }
 
