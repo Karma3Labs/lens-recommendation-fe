@@ -1,36 +1,78 @@
+import { LoaderArgs } from '@remix-run/node'
+import { useLoaderData, useNavigate, useSubmit } from '@remix-run/react'
+import { globalRankings } from '~/api'
+import Pagination from '~/components/Pagination'
+
+const DEFAULT_STRATEGY = '1'
+
+export const loader = async ({ request }: LoaderArgs) => {
+	const url = new URL(request.url)
+	const strategy = url.searchParams.get('strategy') || DEFAULT_STRATEGY
+	const page = url.searchParams.get('page')
+		? Number(url.searchParams.get('page'))
+		: 0
+
+	const results = await globalRankings(strategy, page)
+
+	return {
+		results,
+		page,
+		strategy,
+	}
+}
+
 export default function Index() {
+	const data = useLoaderData<typeof loader>()
+	const submit = useSubmit()
+	const navigate = useNavigate()
+
 	return (
-		<div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-			<h1>Welcome to Remix</h1>
-			<ul>
-				<li>
-					<a
-						target="_blank"
-						href="https://remix.run/tutorials/blog"
-						rel="noreferrer"
+		<main>
+			<div className="container">
+				<header>
+					<button
+						className="btn"
+						onClick={() => navigate('?strategy=1')}
 					>
-						15m Quickstart Blog Tutorial
-					</a>
-				</li>
-				<li>
-					<a
-						target="_blank"
-						href="https://remix.run/tutorials/jokes"
-						rel="noreferrer"
+						Strategy 1
+					</button>
+					<button
+						className="btn"
+						onClick={() => navigate('?strategy=2')}
 					>
-						Deep Dive Jokes App Tutorial
-					</a>
-				</li>
-				<li>
-					<a
-						target="_blank"
-						href="https://remix.run/docs"
-						rel="noreferrer"
+						Strategy 2
+					</button>
+					<button
+						className="btn"
+						onClick={() => navigate('?strategy=3')}
 					>
-						Remix Docs
-					</a>
-				</li>
-			</ul>
-		</div>
+						Strategy 3
+					</button>
+					<button
+						className="btn"
+						onClick={() => navigate('?strategy=4')}
+					>
+						Strategy 4
+					</button>
+				</header>
+
+				<div className="profiles-grid">
+					<div>
+						<strong>ID</strong>
+						<strong>Profile Handle</strong>
+						<strong>Followers</strong>
+					</div>
+					{data.results.map((p) => (
+						<div key={p.id}>
+							<span>{p.id}</span>
+							<span>{p.handle}</span>
+							<span>{p.followersCount}</span>
+						</div>
+					))}
+				</div>
+
+				<Pagination numberOfPages={25} />
+			</div>
+		</main>
 	)
 }

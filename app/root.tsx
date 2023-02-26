@@ -1,4 +1,4 @@
-import type { MetaFunction } from '@remix-run/node'
+import type { LinksFunction, MetaFunction } from '@remix-run/node'
 import {
 	Links,
 	LiveReload,
@@ -14,6 +14,13 @@ export const meta: MetaFunction = () => ({
 	viewport: 'width=device-width,initial-scale=1',
 })
 
+export const links: LinksFunction = () => [
+	{
+		rel: 'stylesheet',
+		href: '/main.css',
+	},
+]
+
 export default function App() {
 	return (
 		<html lang="en">
@@ -28,5 +35,18 @@ export default function App() {
 				<LiveReload />
 			</body>
 		</html>
+	)
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+	return (
+		<main>
+			<div className="container">
+				<h1>Error</h1>
+				<p>{error.message}</p>
+				<p>The stack trace is:</p>
+				<pre>{error.stack}</pre>
+			</div>
+		</main>
 	)
 }

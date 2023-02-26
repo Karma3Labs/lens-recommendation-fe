@@ -1,0 +1,145 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeSpeed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+#root {
+	isolation: isolate;
+}
+
+/* Globals */
+
+:root {
+	--c-black: ##00411;
+	--c-white: #ffffff;
+	--c-dark-purple: #160c28;
+	--c-naples-yellow: #efcb68;
+	--c-honeydew: #e1efe6;
+	--c-main: var(--c-dark-purple);
+	--c-alt: var(--c-naples-yellow);
+
+	--f-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+		Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	--f-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+		'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+		'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+body {
+	background-color: var(--c-dark-purple);
+	color: var(--c-white);
+	font-family: var(--f-body);
+}
+
+.mono {
+	font-family: var(--f-mono);
+}
+
+.visuallyhidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+.container {
+	width: 100%;
+	max-width: 1250px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.btn {
+	appearance: none;
+	border: none;
+	box-shadow: none;
+	padding: 0.75em 1.5em;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 9999px;
+	background-color: var(--c-naples-yellow);
+}
+
+button {
+	cursor: pointer;
+}
+
+/* Specific */
+
+main {
+	padding: 60px 0;
+}
+
+header {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+header details {
+	margin-left: auto;
+}
+
+.profiles-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: 40px 0;
+}
+
+.profiles-grid > div {
+	display: contents;
+}
+
+.profiles-grid span,
+.profiles-grid strong {
+	padding: 8px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
