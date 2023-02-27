@@ -101,11 +101,23 @@ body {
 	appearance: none;
 	border: none;
 	box-shadow: none;
-	padding: 0.75em 1.5em;
+	padding: 0.5em 1em;
 	display: inline-block;
 	cursor: pointer;
-	border-radius: 9999px;
+	border-radius: 0.25rem;
+	font-weight: 600;
 	background-color: var(--c-naples-yellow);
+}
+
+input {
+	appearance: none;
+	border: none;
+	box-shadow: none;
+	padding: 0.5em 0.5em;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 0.25rem;
+	font-weight: 600;
 }
 
 button {
@@ -118,16 +130,40 @@ main {
 	padding: 60px 0;
 }
 
+header {
+	text-align: center;
+}
+
 .title {
 	font-size: 1.5rem;
 	font-weight: 100;
 	margin-bottom: 2rem;
+	text-align: center;
 }
 
 .strategies {
 	display: flex;
-	align-items: flex-start;
-	gap: 12px;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+header form {
+	padding: 20px 0;
+}
+
+.search input {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.search .btn {
+	border-radius: 0;
+}
+
+.search .btn:last-child {
+	border-top-right-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
 }
 
 .strategies details {
@@ -147,6 +183,22 @@ main {
 .profiles-grid span,
 .profiles-grid strong {
 	padding: 8px 0;
+}
+
+.profiles-grid span:first-child {
+	padding-left: 0.5rem;
+	border-top-left-radius: 0.25rem;
+	border-bottom-left-radius: 0.25rem;
+}
+
+.profiles-grid span:last-child {
+	border-top-right-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+}
+
+.profiles-grid .active-row span {
+	font-weight: bold;
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 .pagination {
@@ -183,11 +235,12 @@ main {
 /* Tooltip text */
 .tooltip .tooltiptext {
 	visibility: hidden;
-	background-color: black;
-	color: #fff;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: var(--c-white);
 	text-align: center;
 	padding: 5px 0;
 	border-radius: 6px;
+	font-weight: normal;
 
 	width: 150%;
 	bottom: 110%;
@@ -202,5 +255,4 @@ main {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
 	visibility: visible;
-	opacity: 0.8;
 }

@@ -1,6 +1,19 @@
 import { LoaderArgs } from '@remix-run/node'
-import { NavigateFunction, useLoaderData, useNavigate } from '@remix-run/react'
-import { globalRankings, rankingCounts, strategies, Strategy } from '~/api'
+import {
+	Form,
+	useLoaderData,
+	useNavigate,
+	useSearchParams,
+} from '@remix-run/react'
+import { useEffect } from 'react'
+import {
+	globalRankByHandle,
+	globalRankings,
+	PER_PAGE,
+	rankingCounts,
+	strategies,
+	Strategy,
+} from '~/api'
 import Pagination from '~/components/Pagination'
 
 const DEFAULT_STRATEGY = '1'
@@ -8,9 +21,18 @@ const DEFAULT_STRATEGY = '1'
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
 	const strategy = url.searchParams.get('strategy') || DEFAULT_STRATEGY
-	const page = url.searchParams.get('page')
+	let page = url.searchParams.get('page')
 		? Number(url.searchParams.get('page'))
-		: 0
+		: 1
+
+	const handle = url.searchParams.get('handle')
+	const handleRank = handle
+		? await globalRankByHandle(strategy, handle)
+		: null
+
+	if (handleRank) {
+		page = Math.ceil(handleRank / PER_PAGE)
+	}
 
 	const [results, count] = await Promise.all([
 		globalRankings(strategy, page),
@@ -22,30 +44,24 @@ export const loader = async ({ request }: LoaderArgs) => {
 		page,
 		strategy,
 		count,
-	}
-}
 
-const getStrategyButtons = (
-	strategies: Strategy[],
-	navigate: NavigateFunction,
-) => {
-	return strategies.map((strategy: Strategy) => {
-		return (
-			<button
-				className="btn tooltip"
-				key={strategy.id}
-				onClick={() => navigate(`?strategy=${strategy.id}`)}
-			>
-				{strategy.name}
-				<span className="tooltiptext">{strategy.description}</span>
-			</button>
-		)
-	})
+		handle,
+		handleRank,
+	}
 }
 
 export default function Index() {
 	const data = useLoaderData<typeof loader>()
 	const navigate = useNavigate()
+	const [searchParams] = useSearchParams()
+
+	useEffect(() => {
+		if (data.handle) {
+			document
+				.querySelector(`[data-profile-handle="${data.handle}"]`)
+				?.scrollIntoView(true)
+		}
+	}, [data.handle, data.strategy])
 
 	return (
 		<main>
@@ -56,8 +72,56 @@ export default function Index() {
 					</div>
 
 					<div className="strategies">
-						{getStrategyButtons(strategies, navigate)}
+						{strategies.map((strategy: Strategy) => {
+							const sp = new URLSearchParams(
+								searchParams.toString(),
+							)
+							sp.set('strategy', strategy.id)
+
+							return (
+								<button
+									className="btn tooltip"
+									key={strategy.id}
+									onClick={() =>
+										navigate(`?${sp.toString()}`)
+									}
+								>
+									{strategy.name}
+									<span className="tooltiptext">
+										{strategy.description}
+									</span>
+								</button>
+							)
+						})}
 					</div>
+
+					<Form method="get" className="search">
+						<input
+							type="text"
+							name="handle"
+							placeholder="Search by profile handle"
+							defaultValue={data.handle || ''}
+						/>
+						<input
+							type="hidden"
+							name="strategy"
+							value={data.strategy}
+						/>
+
+						<button className="btn" type="submit">
+							Search
+						</button>
+
+						{data.handle && (
+							<button
+								className="btn"
+								type="button"
+								onClick={() => navigate(`/`)}
+							>
+								Clear
+							</button>
+						)}
+					</Form>
 				</header>
 
 				<div className="profiles-grid">
@@ -67,15 +131,25 @@ export default function Index() {
 						<strong>Followers</strong>
 					</div>
 					{data.results.map((p) => (
-						<div key={p.id}>
+						<div
+							className={
+								p.handle === data.handle ? 'active-row' : ''
+							}
+							key={p.id}
+						>
 							<span>{p.rank + 1}</span>
-							<span>{p.handle}</span>
+							<span data-profile-handle={p.handle}>
+								{p.handle}
+							</span>
 							<span>{p.followersCount}</span>
 						</div>
 					))}
 				</div>
 
-				<Pagination numberOfPages={data.count} />
+				<Pagination
+					numberOfPages={data.count}
+					currentPage={data.page}
+				/>
 			</div>
 		</main>
 	)

@@ -1,19 +1,25 @@
 import { LoaderArgs } from '@remix-run/node'
-import { Form, useLoaderData, useSearchParams } from '@remix-run/react'
+import {
+	Form,
+	useLoaderData,
+	useNavigate,
+	useSearchParams,
+} from '@remix-run/react'
 import { personalisedRankings } from '~/api'
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
-	const handle = url.searchParams.get('q')
+	const handle = url.searchParams.get('handle')
 
 	const page = url.searchParams.get('page')
 		? Number(url.searchParams.get('page'))
-		: 0
+		: 1
 
 	if (!handle) {
 		return {
 			results: [],
 			page,
+			handle: null,
 		}
 	}
 
@@ -22,25 +28,42 @@ export const loader = async ({ request }: LoaderArgs) => {
 	return {
 		results,
 		page,
+		handle,
 	}
 }
 
-export default function Index() {
+export default function Suggest() {
 	const data = useLoaderData<typeof loader>()
-	const [searchParams] = useSearchParams()
+	const navigate = useNavigate()
 
 	return (
 		<main>
 			<div className="container">
 				<header>
-					<Form method="get">
+					<div className="title">
+						<h1>Lens Personalized Trust Index</h1>
+					</div>
+
+					<Form method="get" className="search">
 						<input
 							type="text"
-							name="q"
-							placeholder="handle"
-							defaultValue={searchParams.get('q') as string}
+							name="handle"
+							placeholder="Search by profile handle"
+							defaultValue={data.handle || ''}
 						/>
-						<button type="submit">Search</button>
+						<button className="btn" type="submit">
+							Search
+						</button>
+
+						{data.handle && (
+							<button
+								className="btn"
+								type="button"
+								onClick={() => navigate(`/suggest`)}
+							>
+								Clear
+							</button>
+						)}
 					</Form>
 				</header>
 

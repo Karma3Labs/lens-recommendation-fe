@@ -19,12 +19,12 @@ export const strategies = [
 ] satisfies Strategy[]
 
 const API_URL = 'https://lens-api.k3l.io'
-const PER_PAGE = 50
+export const PER_PAGE = 50
 
 export async function globalRankings(sId: Strategy['id'], page: number) {
 	const url = new URL(`${API_URL}/rankings`)
 	url.searchParams.set('strategy_id', sId)
-	url.searchParams.set('offset', String(page * PER_PAGE))
+	url.searchParams.set('offset', String((Math.max(page - 1, 0)) * PER_PAGE))
 	url.searchParams.set('limit', String(PER_PAGE))
 
 	const resp = await fetch(url.toString(), {
@@ -63,11 +63,32 @@ export async function rankingCounts(sId: Strategy['id']) {
 	return count
 }
 
+export async function globalRankByHandle(sId: Strategy['id'], handle: string) {
+	const url = new URL(`${API_URL}/ranking_index`)
+	url.searchParams.set('strategy_id', sId)
+	url.searchParams.set('handle', handle)
+
+	const resp = await fetch(url.toString(), {
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	if(resp.ok !== true) {
+		console.error(`API response for url=${url.toString()}: ${await resp.text()}`)
+		throw new Error('Error fetching ranking index')
+	}
+
+	const { rank } = await resp.json() as { rank: number }
+	
+	return rank
+}
+
 export async function personalisedRankings(handle: string, page: number) {
 	const url = new URL(`${API_URL}/suggest`)
 	url.searchParams.set('handle', handle)
 	// url.searchParams.set('strategy_id', sId)
-	url.searchParams.set('offset', String(page * PER_PAGE))
+	url.searchParams.set('offset', String((page -1) * PER_PAGE))
 	url.searchParams.set('limit', String(PER_PAGE))
 
 	const resp = await fetch(url.toString(), {

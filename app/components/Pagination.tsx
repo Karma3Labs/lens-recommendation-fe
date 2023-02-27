@@ -1,20 +1,23 @@
 import { useSearchParams, useNavigate, useNavigation } from '@remix-run/react'
+import { Fragment } from 'react'
 
 export default function Pagination({
 	numberOfPages,
+	currentPage,
 }: {
 	numberOfPages: number
+	currentPage: number
 }) {
 	const [searchParams] = useSearchParams()
 	const navigate = useNavigate()
 	const navigation = useNavigation()
-	const currentPage = Number(searchParams.get('page') || '1')
 
 	const goTo = (n: number) => {
 		const sp = new URLSearchParams(searchParams.toString())
 		if (String(n) === sp.get('page')) {
 			return
 		}
+		sp.delete('handle')
 		sp.set('page', String(n))
 		navigate(`?${sp.toString()}`)
 	}
@@ -49,10 +52,9 @@ export default function Pagination({
 					const showDivider = idx > 0 && list[idx] - list[idx - 1] > 1
 
 					return (
-						<>
-							{showDivider && <span key={`${p}_div`}>...</span>}
+						<Fragment key={p}>
+							{showDivider && <span>...</span>}
 							<button
-								key={p}
 								style={{
 									fontWeight:
 										p === currentPage ? 'bold' : 'normal',
@@ -61,7 +63,7 @@ export default function Pagination({
 							>
 								{p}
 							</button>
-						</>
+						</Fragment>
 					)
 				})}
 
