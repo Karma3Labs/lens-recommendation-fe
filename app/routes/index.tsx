@@ -39,6 +39,19 @@ export const loader = async ({ request }: LoaderArgs) => {
 		rankingCounts(strategy),
 	])
 
+	// Profile not found
+	if (handle && !handleRank) {
+		return {
+			results: [],
+			page,
+			strategy,
+			count,
+
+			handle,
+			handleRank,
+		}
+	}
+
 	return {
 		results,
 		page,
@@ -144,6 +157,7 @@ export default function Index() {
 							<span>{p.followersCount}</span>
 						</div>
 					))}
+					{data.results.length === 0 && <div>No results</div>}
 				</div>
 
 				<Pagination
@@ -164,6 +178,23 @@ export function ErrorBoundary({ error }: { error: Error }) {
 				<p>The stack trace is:</p>
 				<pre>{error.stack}</pre>
 			</div>
+		</main>
+	)
+}
+
+export function CatchBoundary() {
+	const [searchParams] = useSearchParams()
+	return (
+		<main>
+			<div className="container">
+				<header>
+					<div className="title">
+						<h1>Lens Global Trust Index</h1>
+					</div>
+				</header>
+			</div>
+
+			<p>We couldn't find that profile.</p>
 		</main>
 	)
 }

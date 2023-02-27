@@ -75,7 +75,12 @@ export async function globalRankByHandle(sId: Strategy['id'], handle: string) {
 	})
 
 	if(resp.ok !== true) {
-		console.error(`API response for url=${url.toString()}: ${await resp.text()}`)
+		const text = await resp.text()
+		if(text === 'Handle does not exist') {
+			return null
+		}
+
+		console.error(`API response for url=${url.toString()}: ${text}`)
 		throw new Error('Error fetching ranking index')
 	}
 
