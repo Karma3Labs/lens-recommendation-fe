@@ -72,7 +72,7 @@ export default function Pagination({
 					Next
 				</button>
 			</section>
-			<strong>
+			<strong style={{ marginLeft: '1em' }}>
 				{navigation.state === 'loading' ? 'Loading...' : ''}
 			</strong>
 		</div>

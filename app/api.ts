@@ -18,7 +18,7 @@ export const strategies = [
 	{ id: '587', name: 'Global Engagement', description: 'Based on who everyone engages with.'},
 ] satisfies Strategy[]
 
-const API_URL = 'https://lens.k3l.io'
+const API_URL = 'https://lens-api.k3l.io'
 const PER_PAGE = 50
 
 export async function globalRankings(sId: Strategy['id'], page: number) {

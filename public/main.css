@@ -167,14 +167,20 @@ main {
 	color: var(--c-black);
 }
 
+.pagination span {
+	user-select: none;
+	-webkit-user-select: none;
+	cursor: default;
+}
+
 /* Tooltip container */
 .tooltip {
 	position: relative;
 	display: inline-block;
 	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-  }
-  
-  /* Tooltip text */
+}
+
+/* Tooltip text */
 .tooltip .tooltiptext {
 	visibility: hidden;
 	background-color: black;
