@@ -46,13 +46,13 @@ export default function Index() {
 
 				<div className="profiles-grid">
 					<div>
-						<strong>ID</strong>
+						<strong>Rank</strong>
 						<strong>Profile Handle</strong>
 						<strong>Followers</strong>
 					</div>
 					{data.results.map((p) => (
 						<div key={p.id}>
-							<span>{p.id}</span>
+							<span>{p.rank + 1}</span>
 							<span>{p.handle}</span>
 							<span>{p.followersCount}</span>
 						</div>

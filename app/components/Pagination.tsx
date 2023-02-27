@@ -36,42 +36,45 @@ export default function Pagination({
 		.filter((n, idx, list) => list.indexOf(n) === idx)
 
 	return (
-		<section>
-			<button
-				disabled={currentPage === 1}
-				onClick={() => goTo(currentPage - 1)}
-			>
-				Previous
-			</button>
-			<button
-				disabled={currentPage === numberOfPages}
-				onClick={() => goTo(currentPage + 1)}
-			>
-				Next
-			</button>
+		<div>
+			<section className="pagination">
+				<button
+					disabled={currentPage === 1}
+					onClick={() => goTo(currentPage - 1)}
+				>
+					Previous
+				</button>
 
-			{pages.map((p, idx, list) => {
-				const showDivider = idx > 0 && list[idx] - list[idx - 1] > 1
+				{pages.map((p, idx, list) => {
+					const showDivider = idx > 0 && list[idx] - list[idx - 1] > 1
 
-				return (
-					<span key={p}>
-						{showDivider && <span>...</span>}
-						<button
-							style={{
-								border:
-									p === currentPage
-										? '1px solid red'
-										: 'none',
-							}}
-							onClick={() => goTo(p)}
-						>
-							{p}
-						</button>
-					</span>
-				)
-			})}
+					return (
+						<>
+							{showDivider && <span key={`${p}_div`}>...</span>}
+							<button
+								key={p}
+								style={{
+									fontWeight:
+										p === currentPage ? 'bold' : 'normal',
+								}}
+								onClick={() => goTo(p)}
+							>
+								{p}
+							</button>
+						</>
+					)
+				})}
 
-			<span>{navigation.state === 'loading' ? 'Loading...' : ''}</span>
-		</section>
+				<button
+					disabled={currentPage === numberOfPages}
+					onClick={() => goTo(currentPage + 1)}
+				>
+					Next
+				</button>
+			</section>
+			<strong>
+				{navigation.state === 'loading' ? 'Loading...' : ''}
+			</strong>
+		</div>
 	)
 }

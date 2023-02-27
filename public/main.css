@@ -53,7 +53,7 @@ h6 {
 /* Globals */
 
 :root {
-	--c-black: ##00411;
+	--c-black: #000411;
 	--c-white: #ffffff;
 	--c-dark-purple: #160c28;
 	--c-naples-yellow: #efcb68;
@@ -147,7 +147,22 @@ main {
 .profiles-grid span,
 .profiles-grid strong {
 	padding: 8px 0;
-	/*
- 	   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-	*/
+}
+
+.pagination {
+	border-radius: 0.25rem;
+	overflow: hidden;
+	display: inline-flex;
+	align-items: stretch;
+}
+
+.pagination button,
+.pagination span {
+	appearance: none;
+	border: none;
+	box-shadow: none;
+	padding: 0.5rem 0.75rem;
+	background-color: var(--c-naples-yellow);
+	line-height: 1.25;
+	color: var(--c-black);
 }

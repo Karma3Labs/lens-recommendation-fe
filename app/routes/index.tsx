@@ -1,6 +1,6 @@
 import { LoaderArgs } from '@remix-run/node'
-import { useLoaderData, useNavigate, useSubmit } from '@remix-run/react'
-import { globalRankings } from '~/api'
+import { useLoaderData, useNavigate } from '@remix-run/react'
+import { globalRankings, rankingCounts } from '~/api'
 import Pagination from '~/components/Pagination'
 
 const DEFAULT_STRATEGY = '1'
@@ -12,54 +12,56 @@ export const loader = async ({ request }: LoaderArgs) => {
 		? Number(url.searchParams.get('page'))
 		: 0
 
-	const results = await globalRankings(strategy, page)
+	const [results, count] = await Promise.all([
+		globalRankings(strategy, page),
+		rankingCounts(strategy),
+	])
 
 	return {
 		results,
 		page,
 		strategy,
+		count,
 	}
 }
 
 export default function Index() {
 	const data = useLoaderData<typeof loader>()
-	const submit = useSubmit()
 	const navigate = useNavigate()
 
 	return (
 		<main>
 			<div className="container">
-
 				<header>
 					<div className="title">
 						<h1>Lens Global Trust Index</h1>
 					</div>
 
-					<div className='strategies'>
-					<button
-						className="btn"
-						onClick={() => navigate('?strategy=1')}
-					>
-						Strategy 1
-					</button>
-					<button
-						className="btn"
-						onClick={() => navigate('?strategy=2')}
-					>
-						Strategy 2
-					</button>
-					<button
-						className="btn"
-						onClick={() => navigate('?strategy=3')}
-					>
-						Strategy 3
-					</button>
-					<button
-						className="btn"
-						onClick={() => navigate('?strategy=4')}
-					>
-						Strategy 4
-					</button>
+					<div className="strategies">
+						<button
+							className="btn"
+							onClick={() => navigate('?strategy=1')}
+						>
+							Strategy 1
+						</button>
+						<button
+							className="btn"
+							onClick={() => navigate('?strategy=2')}
+						>
+							Strategy 2
+						</button>
+						<button
+							className="btn"
+							onClick={() => navigate('?strategy=3')}
+						>
+							Strategy 3
+						</button>
+						<button
+							className="btn"
+							onClick={() => navigate('?strategy=4')}
+						>
+							Strategy 4
+						</button>
 					</div>
 				</header>
 
@@ -78,7 +80,7 @@ export default function Index() {
 					))}
 				</div>
 
-				<Pagination numberOfPages={25} />
+				<Pagination numberOfPages={data.count} />
 			</div>
 		</main>
 	)
