@@ -8,13 +8,14 @@ export interface Profile {
 export interface Strategy {
 	id: string
 	name: string
+	description: string
 }
 
 export const strategies = [
-	{ id: '1', name: 'Strategy 1'},
-	{ id: '2', name: 'Strategy 2'},
-	{ id: '3', name: 'Strategy 3'},
-	{ id: '4', name: 'Strategy 4'},
+	{ id: '1', name: 'Lens OG Follows', description: 'Based on who Lens popular profiles (OGs) follow'},
+	{ id: '3', name: 'Lens OG Engagement', description: `Based on who's content Lens popular profiles (OGs) engage with.`},
+	{ id: '585', name: 'Global Follows', description: 'Based on who everyone follows on Lens.'},
+	{ id: '587', name: 'Global Engagement', description: 'Based on who everyone engages with.'},
 ] satisfies Strategy[]
 
 const API_URL = 'https://lens.k3l.io'
