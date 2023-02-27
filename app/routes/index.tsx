@@ -1,6 +1,6 @@
 import { LoaderArgs } from '@remix-run/node'
-import { useLoaderData, useNavigate } from '@remix-run/react'
-import { globalRankings, rankingCounts } from '~/api'
+import { NavigateFunction, useLoaderData, useNavigate } from '@remix-run/react'
+import { globalRankings, rankingCounts, strategies, Strategy } from '~/api'
 import Pagination from '~/components/Pagination'
 
 const DEFAULT_STRATEGY = '1'
@@ -25,6 +25,24 @@ export const loader = async ({ request }: LoaderArgs) => {
 	}
 }
 
+const getStrategyButtons = (
+	strategies: Strategy[],
+	navigate: NavigateFunction,
+) => {
+	return strategies.map((strategy: Strategy) => {
+		return (
+			<button
+				className="btn tooltip"
+				key={strategy.id}
+				onClick={() => navigate(`?strategy=${strategy.id}`)}
+			>
+				{strategy.name}
+				<span className="tooltiptext">{strategy.description}</span>
+			</button>
+		)
+	})
+}
+
 export default function Index() {
 	const data = useLoaderData<typeof loader>()
 	const navigate = useNavigate()
@@ -38,30 +56,7 @@ export default function Index() {
 					</div>
 
 					<div className="strategies">
-						<button
-							className="btn"
-							onClick={() => navigate('?strategy=1')}
-						>
-							Strategy 1
-						</button>
-						<button
-							className="btn"
-							onClick={() => navigate('?strategy=2')}
-						>
-							Strategy 2
-						</button>
-						<button
-							className="btn"
-							onClick={() => navigate('?strategy=3')}
-						>
-							Strategy 3
-						</button>
-						<button
-							className="btn"
-							onClick={() => navigate('?strategy=4')}
-						>
-							Strategy 4
-						</button>
+						{getStrategyButtons(strategies, navigate)}
 					</div>
 				</header>
 
