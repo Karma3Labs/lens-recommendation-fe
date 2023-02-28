@@ -3,6 +3,7 @@ import {
 	Form,
 	useLoaderData,
 	useNavigate,
+	useNavigation,
 	useSearchParams,
 } from '@remix-run/react'
 import { useEffect } from 'react'
@@ -66,6 +67,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 export default function Index() {
 	const data = useLoaderData<typeof loader>()
 	const navigate = useNavigate()
+	const navigation = useNavigation()
 	const [searchParams] = useSearchParams()
 
 	useEffect(() => {
@@ -78,6 +80,8 @@ export default function Index() {
 
 	return (
 		<main>
+			{navigation.state === 'loading' && <span className="loader"></span>}
+
 			<div className="container">
 				<header>
 					<div className="title">
