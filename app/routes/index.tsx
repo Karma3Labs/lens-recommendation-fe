@@ -3,7 +3,6 @@ import {
 	Form,
 	useLoaderData,
 	useNavigate,
-	useNavigation,
 	useSearchParams,
 } from '@remix-run/react'
 import { useEffect } from 'react'
@@ -15,6 +14,7 @@ import {
 	strategies,
 	Strategy,
 } from '~/api'
+import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
 
 const DEFAULT_STRATEGY = '1'
@@ -67,7 +67,6 @@ export const loader = async ({ request }: LoaderArgs) => {
 export default function Index() {
 	const data = useLoaderData<typeof loader>()
 	const navigate = useNavigate()
-	const navigation = useNavigation()
 	const [searchParams] = useSearchParams()
 
 	useEffect(() => {
@@ -80,7 +79,17 @@ export default function Index() {
 
 	return (
 		<main>
-			{navigation.state === 'loading' && <span className="loader"></span>}
+			<LoadingIndicator />
+
+			<a href="https://k3l.io" target="_blank">
+				<img
+					width="180px"
+					className="logo"
+					src="/logo.svg"
+					draggable="false"
+					alt="Karma3Labs Logo"
+				/>
+			</a>
 
 			<div className="container">
 				<header>
@@ -196,23 +205,6 @@ export function ErrorBoundary({ error }: { error: Error }) {
 				<p>The stack trace is:</p>
 				<pre>{error.stack}</pre>
 			</div>
-		</main>
-	)
-}
-
-export function CatchBoundary() {
-	const [searchParams] = useSearchParams()
-	return (
-		<main>
-			<div className="container">
-				<header>
-					<div className="title">
-						<h1>Lens Global Trust Index</h1>
-					</div>
-				</header>
-			</div>
-
-			<p>We couldn't find that profile.</p>
 		</main>
 	)
 }

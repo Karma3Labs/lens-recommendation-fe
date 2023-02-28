@@ -1,11 +1,7 @@
 import { LoaderArgs } from '@remix-run/node'
-import {
-	Form,
-	useLoaderData,
-	useNavigate,
-	useSearchParams,
-} from '@remix-run/react'
+import { Form, useLoaderData, useNavigate } from '@remix-run/react'
 import { personalisedRankings } from '~/api'
+import LoadingIndicator from '~/components/LoadingIndicator'
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
@@ -38,6 +34,18 @@ export default function Suggest() {
 
 	return (
 		<main>
+			<LoadingIndicator />
+
+			<a href="https://k3l.io" target="_blank">
+				<img
+					width="180px"
+					className="logo"
+					src="/logo.svg"
+					draggable="false"
+					alt="Karma3Labs Logo"
+				/>
+			</a>
+
 			<div className="container">
 				<header>
 					<div className="title">
