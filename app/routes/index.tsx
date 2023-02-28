@@ -81,7 +81,13 @@ export default function Index() {
 			<div className="container">
 				<header>
 					<div className="title">
-						<h1>Lens Global Trust Index</h1>
+						<h1>Lens Global Profile Rankings</h1>
+						<p>
+							<small>
+								Four different profile rankings based on social
+								graph data and EigenTrust algorithm.
+							</small>
+						</p>
 					</div>
 
 					<div className="strategies">
@@ -94,6 +100,14 @@ export default function Index() {
 							return (
 								<button
 									className="btn tooltip"
+									style={
+										strategy.id === data.strategy
+											? {
+													backgroundColor:
+														'var(--c-naples-yellow)',
+											  }
+											: undefined
+									}
 									key={strategy.id}
 									onClick={() =>
 										navigate(`?${sp.toString()}`)
@@ -161,7 +175,7 @@ export default function Index() {
 				</div>
 
 				<Pagination
-					numberOfPages={data.count}
+					numberOfPages={Math.ceil(data.count / PER_PAGE)}
 					currentPage={data.page}
 				/>
 			</div>

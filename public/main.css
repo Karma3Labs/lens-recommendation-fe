@@ -148,6 +148,10 @@ header {
 	gap: 20px;
 }
 
+.strategies .btn {
+	background-color: var(--c-honeydew);
+}
+
 header form {
 	padding: 20px 0;
 }
@@ -217,6 +221,11 @@ header form {
 	background-color: var(--c-naples-yellow);
 	line-height: 1.25;
 	color: var(--c-black);
+	transition: opacity 0.3s;
+}
+
+.pagination button:disabled {
+	opacity: 0.8;
 }
 
 .pagination span {
