@@ -88,7 +88,9 @@ export default function Suggest() {
 							<span>{p.followersCount}</span>
 						</div>
 					))}
-					{data.results.length === 0 && <div>No results</div>}
+					{data.handle && data.results.length === 0 && (
+						<div>No results</div>
+					)}
 				</div>
 			</div>
 		</main>
