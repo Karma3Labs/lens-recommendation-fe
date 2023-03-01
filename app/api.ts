@@ -103,7 +103,12 @@ export async function personalisedRankings(handle: string, page: number) {
 	})
 
 	if(resp.ok !== true) {
-		console.error(`API response for url=${url.toString()}: ${await resp.text()}`)
+		const text = await resp.text()
+		if(text === 'Handle does not exist') {
+			return []
+		}
+
+		console.error(`API response for url=${url.toString()}: ${text}`)
 		throw new Error('Error fetching personalised profiles')
 	}
 

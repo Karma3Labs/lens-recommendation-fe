@@ -49,7 +49,7 @@ export default function Suggest() {
 			<div className="container">
 				<header>
 					<div className="title">
-						<h1>Lens Personalized Trust Index</h1>
+						<h1>Lens Personalized Search</h1>
 					</div>
 
 					<Form method="get" className="search">
@@ -88,6 +88,7 @@ export default function Suggest() {
 							<span>{p.followersCount}</span>
 						</div>
 					))}
+					{data.results.length === 0 && <div>No results</div>}
 				</div>
 			</div>
 		</main>
