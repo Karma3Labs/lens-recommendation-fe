@@ -15,7 +15,8 @@ export const strategies = [
 	{ id: '3', name: 'Lens OG Engagement', description: `Based on who's content Lens popular profiles (OGs) engage with.`},
 	{ id: '1', name: 'Global Follows', description: 'Based on who everyone follows on Lens.'},
 	{ id: '2', name: 'Global Engagement', description: 'Based on who everyone engages with.'},
-	{ id: '4', name: 'Lens OG Collect', description: 'Based on who Lens popular profiles (OGs) engage with (including CollectNFT)'},
+	{ id: '4', name: 'Lens Global Collect', description: 'Based on who everyone engages with ( including CollectNFT)'},
+	{ id: '5', name: 'Lens OG Collect', description: 'Based on who Lens popular profiles (OGs) engage with (including CollectNFT)'},
 ] satisfies Strategy[]
 
 const API_URL = 'https://lens-api.k3l.io'
