@@ -17,7 +17,7 @@ import {
 import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
 
-const DEFAULT_STRATEGY = '1'
+const DEFAULT_STRATEGY = '6'
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
