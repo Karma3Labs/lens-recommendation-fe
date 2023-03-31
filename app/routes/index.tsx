@@ -177,7 +177,7 @@ export default function Index() {
 							}
 							key={p.id}
 						>
-							<span>{p.rank + 1}</span>
+							<span>{p.rank}</span>
 							<span data-profile-handle={p.handle}>
 								{p.handle}
 							</span>
