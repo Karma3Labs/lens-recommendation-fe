@@ -83,7 +83,7 @@ export default function Suggest() {
 					</div>
 					{data.results.map((p) => (
 						<div key={p.id}>
-							<span>{p.rank + 1}</span>
+							<span>{p.rank}</span>
 							<span>{p.handle}</span>
 							<span>{p.followersCount}</span>
 						</div>
