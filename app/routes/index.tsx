@@ -101,6 +101,11 @@ export default function Index() {
 								graph data and EigenTrust algorithm.
 							</small>
 						</p>
+						<p>
+							<small>
+								Last updated: {new Date().toDateString()}
+							</small>
+						</p>
 					</div>
 
 					<div className="strategies">
