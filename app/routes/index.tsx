@@ -91,6 +91,16 @@ export default function Index() {
 				/>
 			</a>
 
+			<a href="https://www.lens.xyz/" target="_blank">
+				<img
+					width="50px"
+					className="lenslogo"
+					src="/lens.svg"
+					draggable="false"
+					alt="Karma3Labs Logo"
+				/>
+			</a>
+
 			<div className="container">
 				<header>
 					<div className="title">

@@ -190,6 +190,12 @@ header {
 	left: 48px;
 }
 
+.lenslogo {
+	position: absolute;
+	top: 13px;
+	right: 38px;
+}
+
 .title {
 	font-size: 1.5rem;
 	font-weight: 100;
