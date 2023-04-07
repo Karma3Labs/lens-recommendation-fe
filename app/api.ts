@@ -12,10 +12,10 @@ export interface Strategy {
 }
 
 export const strategies = [
-	{ id: '6', name: 'OG Follow', description: 'Based on who Lens popular profiles (OGs) follow'},
-	{ id: '3', name: 'OG Engagement', description: `Based on who's content Lens popular profiles (OGs) engage with.`},
-	{ id: '5', name: 'OG Collect', description: 'Based on who Lens popular profiles (OGs) engage with (including CollectNFT)'},
-	{ id: '7', name: 'OG Price Collect ', description: 'Based on who Lens popular profiles (OGs) engage with (including CollectNFT with Prices)'},
+	{ id: '6', name: 'followship', description: 'This strategy emphasizes only on the relevant and meaningful follows as peer-to-peer attestations, disregarding mirrors and comments.'},
+	{ id: '3', name: 'engagement', description: 'This strategy emphasizes on social engagements as attestations, combining follows, mirrors and comments.'},
+	{ id: '5', name: 'influencer', description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.'},
+	{ id: '7', name: 'creator', description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.'},
 ] satisfies Strategy[]
 
 const API_URL = 'https://lens-api.k3l.io'
