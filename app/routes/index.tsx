@@ -110,8 +110,8 @@ export default function Index() {
 					<h1>Lens Global Profile Rankings</h1>
 					<p>
 						<small className='description'>
-							Four different profile rankings based on social
-							graph data and EigenTrust algorithm.
+							Four different profile rankings based on Lens'
+							bigQuery data and the EigenTrust algorithm.
 						</small>
 					</p>
 					<p>

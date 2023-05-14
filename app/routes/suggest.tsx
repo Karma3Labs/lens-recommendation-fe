@@ -35,45 +35,71 @@ export default function Suggest() {
 	return (
 		<main>
 			<LoadingIndicator />
+			<header>
+				<div className="logos">
+					<div className='logo-container-1'>
+						<a href="https://k3l.io" target="_blank">
+							<img
+								width="180px"
+								src="/logo.svg"
+								draggable="false"
+								alt="Karma3Labs Logo"
+							/>
+						</a>
+					</div>
+					<div className="line"></div>
+					<div className='logo-container-2'>
+						<a href="https://www.lens.xyz/" target="_blank">
+							<img
+								width="50px"
+								src="/lens.svg"
+								draggable="false"
+								alt="Karma3Labs Logo"
+							/>
+						</a>
+					</div>
+				</div>
 
-			<a href="https://k3l.io" target="_blank">
-				<img
-					width="180px"
-					className="logo"
-					src="/logo.svg"
-					draggable="false"
-					alt="Karma3Labs Logo"
-				/>
-			</a>
+
+				<div className="title">
+					<h1>Lens Personalized Recommendation</h1>
+					<p>
+						<small className='description'>
+							Personalized recommendation using the
+							Lens' bigQuery data and EigenTrust algorithm.
+						</small>
+					</p>
+					<p>
+						<small>
+							Last updated: {new Date().toDateString()}
+						</small>
+					</p>
+				</div>
+			</header>
 
 			<div className="container">
-				<header>
-					<div className="title">
-						<h1>Lens Personalized Search</h1>
-					</div>
-
-					<Form method="get" className="search">
-						<input
-							type="text"
-							name="handle"
-							placeholder="Search by handle"
-							defaultValue={data.handle || ''}
-						/>
-						<button className="btn" type="submit">
-							Search
+				<Form method="get" className="search personalized-search">
+					<input
+						type="text"
+						name="handle"
+						className="btn"
+						placeholder="Search by handle"
+						defaultValue={data.handle || ''}
+					/>
+					{/* <button className="btn" type="submit">
+						Search
+					</button> */}
+{/* 
+					{data.handle && (
+						<button
+							className="btn"
+							type="button"
+							onClick={() => navigate(`/suggest`)}
+						>
+							Clear
 						</button>
-
-						{data.handle && (
-							<button
-								className="btn"
-								type="button"
-								onClick={() => navigate(`/suggest`)}
-							>
-								Clear
-							</button>
-						)}
-					</Form>
-				</header>
+					)} */}
+				</Form>
 
 				<div className="profiles-grid">
 					<div>
