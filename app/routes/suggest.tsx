@@ -56,7 +56,7 @@ export default function Suggest() {
 						<input
 							type="text"
 							name="handle"
-							placeholder="Search by profile handle"
+							placeholder="Search by handle"
 							defaultValue={data.handle || ''}
 						/>
 						<button className="btn" type="submit">
