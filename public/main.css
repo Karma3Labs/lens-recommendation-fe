@@ -232,6 +232,9 @@ header {
 .tools {
 	margin-top: 50px;
 	display: flex;
+	justify-content: center;
+	gap: 50%;
+	flex-wrap: wrap;
 }
 
 .title {
@@ -259,14 +262,11 @@ header {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 20px;
+	margin-bottom: 1%;
 }
 
 header form {
 	padding: 20px 0;
-}
-
-.search {
-	margin-left: 43%;
 }
 
 .personalized-search {
