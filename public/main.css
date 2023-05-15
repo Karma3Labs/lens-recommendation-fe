@@ -90,6 +90,23 @@ body {
 	margin: 0 auto;
 }
 
+.links {
+	top: 10px;
+	position: absolute;
+	right: 39px;
+	font-size: 18px;
+	display: flex;
+	gap: 20px;
+}
+
+.links a {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: white;
+}
+
 /* CSS */
 .btn {
   align-items: center;

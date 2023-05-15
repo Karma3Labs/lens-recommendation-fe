@@ -104,7 +104,10 @@ export default function Index() {
 						</a>
 					</div>
 				</div>
-
+				<div className='links'>
+					<a href='https://lens.k3l.io/suggest'>Who to Follow</a>
+					<a href='https://content.lens.k3l.io'>Popular Content</a>
+				</div>
 
 				<div className="title">
 					<h1>Lens Global Profile Rankings</h1>
