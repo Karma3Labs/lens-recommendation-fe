@@ -250,8 +250,8 @@ header {
 	margin-top: 50px;
 	display: flex;
 	justify-content: center;
-	gap: 50%;
 	flex-wrap: wrap;
+	gap: 45%;
 }
 
 .title {
