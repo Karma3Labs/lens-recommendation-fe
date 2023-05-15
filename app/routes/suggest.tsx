@@ -60,6 +60,10 @@ export default function Suggest() {
 					</div>
 				</div>
 
+				<div className='links'>
+					<a href='https://lens.k3l.io/suggest'>Who to Follow</a>
+					<a href='https://content.lens.k3l.io'>Popular Content</a>
+				</div>
 
 				<div className="title">
 					<h1>Lens Personalized Recommendation</h1>
