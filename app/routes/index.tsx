@@ -82,6 +82,7 @@ export default function Index() {
 		<main>
 			<LoadingIndicator />
 			<header>
+				<HeaderLinks />
 				<div className="logos">
 					<div className='logo-container-1'>
 						<a href="https://k3l.io" target="_blank">
@@ -106,7 +107,6 @@ export default function Index() {
 					</div>
 				</div>
 
-				<HeaderLinks />
 
 				<div className="title">
 					<h1>Lens Profile Rankings</h1>

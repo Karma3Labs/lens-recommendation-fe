@@ -86,7 +86,7 @@ body {
 }
 
 .container {
-	width: 80%;
+	width: 75%;
 	margin: 0 auto;
 }
 
@@ -258,6 +258,8 @@ header {
 
 .tools {
 	margin-top: 50px;
+	width: 120%;
+	margin-left: -10%;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -306,7 +308,7 @@ header form {
 
 .profiles-grid {
 	display: grid;
-	grid-template-columns: 1fr 5fr 0.5fr;
+	grid-template-columns: 1fr 5fr 0.3fr;
 	margin: 40px 0;
 }
 
@@ -321,7 +323,7 @@ header form {
 
 .profiles-grid .active-row span {
 	font-weight: bold;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: aliceblue;
 }
 
 .pagination {

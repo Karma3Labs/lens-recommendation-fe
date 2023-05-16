@@ -50,7 +50,6 @@ export default function HeaderLinks() {
     // JSX for rendering the header links
     <div className='links'>
       <a className='header-link' href='/'>Profile Rankings</a>
-      <a className='header-link' href='/suggest?handle=nader.lens'>Who to Follow</a>
       {/* <a className='header-link' href='https://content.lens.k3l.io'>Popular Content</a> */}
   </div>
 );
