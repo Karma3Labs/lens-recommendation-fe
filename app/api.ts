@@ -65,9 +65,10 @@ export async function rankingCounts(sId: Strategy['id']) {
 
 export async function globalRankByHandle(sId: Strategy['id'], handle: string) {
 	const url = new URL(`${API_URL}/ranking_index`)
-	if (!handle.endsWith('.lens')) {
+	if (handle && !handle.endsWith('.lens')) {
 		handle = `${handle}.lens`
 	}
+		console.log('handle', handle)
 
 	url.searchParams.set('strategy_id', sId)
 	url.searchParams.set('handle', handle)

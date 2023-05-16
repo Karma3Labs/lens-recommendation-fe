@@ -28,7 +28,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 		: 1
 
 	let handle = url.searchParams.get('handle')
-	if (!handle?.endsWith('.lens')) {
+	if (handle && handle !== '' && !handle.endsWith('.lens')) {
 		handle = `${handle}.lens`
 	}
 
