@@ -91,13 +91,9 @@ body {
 }
 
 .links {
-	top: 10px;
-	position: absolute;
-	right: 39px;
+	text-align: end;
 	font-size: 18px;
 	font-weight: 500;
-	display: flex;
-	gap: 20px;
 }
 
 .links a {
