@@ -95,14 +95,20 @@ body {
 	position: absolute;
 	right: 39px;
 	font-size: 18px;
+	font-weight: 500;
 	display: flex;
 	gap: 20px;
 }
 
 .links a {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
+.disabled-link {
+	pointer-events: none; /* Disable mouse events */
+	opacity: 0.5; /* Visually indicate disabled state */
+}
+  
 a:visited {
 	color: white;
 }
@@ -138,6 +144,10 @@ a:visited {
   width: auto;
   will-change: transform,opacity;
   z-index: 0;
+}
+
+.btn-search {
+	background: #dae7ef;
 }
 
 input {

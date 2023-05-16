@@ -34,13 +34,13 @@ export default function HeaderLinks() {
 
         // Extract the path from the link URL
         const linkPath = new URL(linkUrl, currentBaseUrl).pathname; // Path
-        console.log("linkBaseUrl: ", linkBaseUrl, " === currentBaseUrl: ", currentBaseUrl)
-        console.log("linkPath: ", linkPath, " === currentPath: ", currentPath)
 
         // Compare the base URL and path of the link with the current page
         if (linkBaseUrl === currentBaseUrl && linkPath === currentPath) {
           // Hide or disable the link
-          anchorLink.style.display = 'none'; // or link.disabled = true; for disabling
+          // anchorLink.style.display = 'none'; // or link.disabled = true; for disabling
+          anchorLink.classList.add('disabled-link');
+          anchorLink.addEventListener('click', (event) => event.preventDefault());
         }
       }
     });
@@ -49,7 +49,7 @@ export default function HeaderLinks() {
   return (
     // JSX for rendering the header links
     <div className='links'>
-      <a className='header-link' href='/'>Profile Ranking</a>
+      <a className='header-link' href='/'>Profile Rankings</a>
       <a className='header-link' href='/suggest?handle=nader.lens'>Who to Follow</a>
       {/* <a className='header-link' href='https://content.lens.k3l.io'>Popular Content</a> */}
   </div>

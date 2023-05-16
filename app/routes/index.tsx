@@ -152,7 +152,7 @@ export default function Index() {
 							type="text"
 							name="handle"
 							placeholder="Search by handle"
-							className='btn'
+							className='btn btn-search'
 							defaultValue={data.handle || ''}
 						/>
 						<input
