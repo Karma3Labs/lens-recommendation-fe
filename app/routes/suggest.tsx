@@ -65,17 +65,7 @@ export default function Suggest() {
 
 				<div className="title">
 					<h1>Lens Personalized Recommendation</h1>
-					<p>
-						<small className='description'>
-							Personalized recommendation using the
-							Lens' bigQuery data and EigenTrust algorithm.
-						</small>
-					</p>
-					<p>
-						<small>
-							Last updated: {new Date().toDateString()}
-						</small>
-					</p>
+					<h6>Powered by configurable open-sourced algorithms</h6>
 				</div>
 			</header>
 
@@ -84,7 +74,7 @@ export default function Suggest() {
 					<input
 						type="text"
 						name="handle"
-						className="btn"
+						className="btn btn-search"
 						placeholder="Search by handle"
 						defaultValue={data.handle || ''}
 					/>
