@@ -15,7 +15,7 @@ body {
 }
 
 body {
-	line-height: 1.5;
+	line-height: 1.2;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeSpeed;
 }
@@ -43,6 +43,35 @@ h4,
 h5,
 h6 {
 	overflow-wrap: break-word;
+}
+
+h1 {
+	font-size: 8vw;
+}
+
+h6 {
+	font-size: 2vw;
+}
+
+@media screen and (max-width: 400px) {
+	h1 {
+		font-size: 32px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	h6 {
+		font-size: 12px;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	h1 {
+		font-size: 64px;
+	}
+	h6 {
+		font-size: 16px;
+	}
 }
 
 #root {
@@ -86,7 +115,7 @@ body {
 }
 
 .container {
-	width: 75%;
+	width: 95%;
 	margin: 0 auto;
 }
 
@@ -114,7 +143,7 @@ a:visited {
   align-items: center;
   appearance: none;
   background-color: #fff;
-  border-radius: 24px;
+  border-radius: 12px;
   border-style: none;
   box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
   box-sizing: border-box;
@@ -123,7 +152,7 @@ a:visited {
   display: inline-flex;
   fill: currentcolor;
   font-size: 15px;
-  height: 48px;
+  height: 40px;
   justify-content: center;
   letter-spacing: .25px;
   line-height: normal;
@@ -226,12 +255,18 @@ header {
 }
 
 .logos {
-	margin-left: 5%;
+	margin: 0 5%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100px; /* adjust this value as needed */
 }
+
+.logos-grid {
+	display: grid;
+	grid-template-columns: 4fr 0.1fr 3.4fr;
+}
+
 
 .logo-container-1 {
     flex: 1;
@@ -253,13 +288,13 @@ header {
 }
 
 .tools {
-	margin-top: 50px;
-	width: 120%;
-	margin-left: -10%;
+	margin-top: 20px;
+	width: 100%;
+	/* margin-left: -10%; */
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	flex-wrap: wrap;
-	gap: 45%;
+	gap: 10%;
 }
 
 .title {
@@ -286,8 +321,13 @@ header {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: 10px;
+	padding: 10px 0;
 	margin-bottom: 1%;
+}
+
+.search {
+	padding: 10px;
 }
 
 header form {
@@ -304,8 +344,8 @@ header form {
 
 .profiles-grid {
 	display: grid;
-	grid-template-columns: 1fr 5fr 0.3fr;
-	margin: 40px 0;
+	grid-template-columns: 1.5fr 5fr 1.5fr;
+	padding: 20px 10%;
 }
 
 .profiles-grid > div {
@@ -315,6 +355,10 @@ header form {
 .profiles-grid span,
 .profiles-grid strong {
 	padding: 8px 0;
+}
+
+.profiles-grid .right-align {
+	text-align: right;
 }
 
 .profiles-grid .active-row span {
@@ -366,7 +410,7 @@ header form {
 	background-color: rgba(0, 0, 0, 0.8);
 	color: var(--c-white);
 	text-align: center;
-	padding: 5px 0;
+	padding: 10px;
 	border-radius: 6px;
 	font-weight: normal;
 

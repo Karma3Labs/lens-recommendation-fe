@@ -86,8 +86,8 @@ export default function Index() {
 		<main>
 			<LoadingIndicator />
 			<header>
-				<HeaderLinks />
-				<div className="logos">
+				{/* <HeaderLinks /> */}
+				<div className="logos logos-grid">
 					<div className='logo-container-1'>
 						<a href="https://k3l.io" target="_blank">
 							<img
@@ -110,15 +110,13 @@ export default function Index() {
 						</a>
 					</div>
 				</div>
-
-
 				<div className="title">
 					<h1>Lens Profile Rankings</h1>
 					<h6>Powered by configurable open-sourced algorithms</h6>
 				</div>
 			</header>
 			<div className="container">
-				<div className='tools'> 
+				<div className="tools"> 
 					<div className="strategies">
 						{strategies.map((strategy: Strategy) => {
 							const sp = new URLSearchParams(
@@ -131,10 +129,7 @@ export default function Index() {
 									className="btn tooltip strategy-btn"
 									style={
 										strategy.id === data.strategy
-											? {
-													backgroundColor:
-														'rgb(51 120 233)', color: 'white'
-											  }
+											? { backgroundColor: 'rgb(51 120 233)',  color: 'white', fontWeight: 'bold' }
 											: undefined
 									}
 									key={strategy.id}
@@ -150,42 +145,43 @@ export default function Index() {
 							)
 						})}
 					</div>
+					<div className="search">
+						<Form method="get">
+							<input 
+								type="text"
+								name="handle"
+								placeholder="Search by handle"
+								className='btn btn-search'
+								defaultValue={data.handle || ''}
+							/>
+							<input
+								type="hidden"
+								name="strategy"
+								value={data.strategy}
+							/>
 
-					<Form method="get" className="search">
-						<input 
-							type="text"
-							name="handle"
-							placeholder="Search by handle"
-							className='btn btn-search'
-							defaultValue={data.handle || ''}
-						/>
-						<input
-							type="hidden"
-							name="strategy"
-							value={data.strategy}
-						/>
-
-						{/* <button className="btn" type="submit">
-							Search
-						</button>
-
-						{data.handle && (
-							<button
-								className="btn"
-								type="button"
-								onClick={() => navigate(`/`)}
-							>
-								Clear
+							{/* <button className="btn" type="submit">
+								Search
 							</button>
-						)} */}
-					</Form>
+
+							{data.handle && (
+								<button
+									className="btn"
+									type="button"
+									onClick={() => navigate(`/`)}
+								>
+									Clear
+								</button>
+							)} */}
+						</Form>
+					</div>
 				</div> 
 
 				<div className="profiles-grid">
 					<div className='column-names'>
 						<strong>Rank</strong>
 						<strong>Profile Handle</strong>
-						<strong>Followers</strong>
+						<strong className="right-align">Followers</strong>
 					</div>
 
 					{data.results.map((p) => (
@@ -199,7 +195,7 @@ export default function Index() {
 							<span data-profile-handle={p.handle}>
 								{p.handle}
 							</span>
-							<span>{p.followersCount}</span>
+							<span className="right-align">{p.followersCount}</span>
 						</div>
 					))}
 					{data.results.length === 0 && <div>No results</div>}

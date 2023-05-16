@@ -19,7 +19,7 @@ export const strategies = [
 ] satisfies Strategy[]
 
 const API_URL = 'https://lens-api.k3l.io'
-export const PER_PAGE = 50
+export const PER_PAGE = 100
 
 export async function globalRankings(sId: Strategy['id'], page: number) {
 	const url = new URL(`${API_URL}/rankings`)

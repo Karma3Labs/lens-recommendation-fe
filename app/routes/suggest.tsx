@@ -37,6 +37,7 @@ export default function Suggest() {
 		<main>
 			<LoadingIndicator />
 			<header>
+				<HeaderLinks />
 				<div className="logos">
 					<div className='logo-container-1'>
 						<a href="https://k3l.io" target="_blank">
@@ -60,9 +61,6 @@ export default function Suggest() {
 						</a>
 					</div>
 				</div>
-
-				<HeaderLinks />
-
 				<div className="title">
 					<h1>Lens Personalized Recommendation</h1>
 					<h6>Powered by configurable open-sourced algorithms</h6>

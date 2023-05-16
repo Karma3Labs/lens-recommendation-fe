@@ -45,7 +45,7 @@ export default function Pagination({
 					disabled={currentPage === 1}
 					onClick={() => goTo(currentPage - 1)}
 				>
-					Previous
+					« Prev
 				</button>
 
 				{pages.map((p, idx, list) => {
@@ -71,7 +71,7 @@ export default function Pagination({
 					disabled={currentPage === numberOfPages}
 					onClick={() => goTo(currentPage + 1)}
 				>
-					Next
+					Next »
 				</button>
 			</section>
 			<strong style={{ marginLeft: '1em' }}>
