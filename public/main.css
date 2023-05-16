@@ -226,11 +226,11 @@ header {
 }
 
 .logos {
-	margin-left: 116px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px; /* adjust this value as needed */
+	margin-left: 5%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px; /* adjust this value as needed */
 }
 
 .logo-container-1 {
