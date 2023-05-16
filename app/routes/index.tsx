@@ -16,6 +16,7 @@ import {
 } from '~/api'
 import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
+import HeaderLinks from '~/components/HeaderLinks'
 
 const DEFAULT_STRATEGY = '6'
 
@@ -104,10 +105,8 @@ export default function Index() {
 						</a>
 					</div>
 				</div>
-				<div className='links'>
-					<a href='https://lens.k3l.io/suggest'>Who to Follow</a>
-					<a href='https://content.lens.k3l.io'>Popular Content</a>
-				</div>
+
+				<HeaderLinks />
 
 				<div className="title">
 					<h1>Lens Profile Rankings</h1>

@@ -2,6 +2,7 @@ import { LoaderArgs } from '@remix-run/node'
 import { Form, useLoaderData, useNavigate } from '@remix-run/react'
 import { personalisedRankings } from '~/api'
 import LoadingIndicator from '~/components/LoadingIndicator'
+import HeaderLinks from '~/components/HeaderLinks'
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
@@ -60,10 +61,7 @@ export default function Suggest() {
 					</div>
 				</div>
 
-				<div className='links'>
-					<a href='https://lens.k3l.io/suggest'>Who to Follow</a>
-					<a href='https://content.lens.k3l.io'>Popular Content</a>
-				</div>
+				<HeaderLinks />
 
 				<div className="title">
 					<h1>Lens Personalized Recommendation</h1>
