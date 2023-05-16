@@ -12,6 +12,18 @@ export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
 	title: 'Lens Recommendation',
 	viewport: 'width=device-width,initial-scale=1',
+	// Open Graph tags
+	'og:title': 'Profile Rankings on Lens Protocol — by Karma3 Labs',
+	'og:type' : 'website',
+	'og:url'  : 'https://lens.k3l.io/',
+	'og:image': 'https://lens.k3l.io/karma3-lens-og.jpg',
+    'og:description': 'Powered by configurable open-sourced algorithms',
+	// Twitter tags
+	'twitter:card': 'summary_large_image',
+	'twitter:title' : 'Profile Rankings on Lens Protocol — by Karma3 Labs',
+	'twitter:url'  : 'https://lens.k3l.io/',
+	'twitter:image': 'https://lens.k3l.io/karma3-lens-og.jpg',
+    'twitter:description': 'Powered by configurable open-sourced algorithms',
 })
 
 export const links: LinksFunction = () => [

@@ -16,6 +16,7 @@ import {
 } from '~/api'
 import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
+import HeaderLinks from '~/components/HeaderLinks'
 
 const DEFAULT_STRATEGY = '6'
 
@@ -104,24 +105,12 @@ export default function Index() {
 						</a>
 					</div>
 				</div>
-				<div className='links'>
-					<a href='https://lens.k3l.io/suggest'>Who to Follow</a>
-					<a href='https://content.lens.k3l.io'>Popular Content</a>
-				</div>
+
+				<HeaderLinks />
 
 				<div className="title">
-					<h1>Lens Global Profile Rankings</h1>
-					<p>
-						<small className='description'>
-							Four different profile rankings based on Lens'
-							bigQuery data and the EigenTrust algorithm.
-						</small>
-					</p>
-					<p>
-						<small>
-							Last updated: {new Date().toDateString()}
-						</small>
-					</p>
+					<h1>Lens Profile Rankings</h1>
+					<h6>Powered by configurable open-sourced algorithms</h6>
 				</div>
 			</header>
 			<div className="container">
