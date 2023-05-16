@@ -27,7 +27,11 @@ export const loader = async ({ request }: LoaderArgs) => {
 		? Number(url.searchParams.get('page'))
 		: 1
 
-	const handle = url.searchParams.get('handle')
+	let handle = url.searchParams.get('handle')
+	if (!handle?.endsWith('.lens')) {
+		handle = `${handle}.lens`
+	}
+
 	const handleRank = handle
 		? await globalRankByHandle(strategy, handle)
 		: null
