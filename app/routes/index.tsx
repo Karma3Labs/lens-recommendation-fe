@@ -18,7 +18,7 @@ import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
 import HeaderLinks from '~/components/HeaderLinks'
 
-const DEFAULT_STRATEGY = '6'
+const DEFAULT_STRATEGY = 'followship'
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
@@ -122,22 +122,25 @@ export default function Index() {
 							const sp = new URLSearchParams(
 								searchParams.toString(),
 							)
-							sp.set('strategy', strategy.id)
+							sp.set('strategy', strategy.name)
+
+							const capitalizeFirst = (str: string) => 
+								str.charAt(0).toUpperCase() + str.slice(1);
 
 							return (
 								<button
 									className="btn tooltip strategy-btn"
 									style={
-										strategy.id === data.strategy
-											? { backgroundColor: 'rgb(51 120 233)',  color: 'white', fontWeight: 'bold' }
+										strategy.name === data.strategy
+													? { backgroundColor: 'rgb(51 120 233)',  color: 'white', fontWeight: 'bold' }
 											: undefined
 									}
-									key={strategy.id}
+									key={strategy.name}
 									onClick={() =>
 										navigate(`?${sp.toString()}`)
 									}
 								>
-									{strategy.name}
+									{capitalizeFirst(strategy.name)}
 									<span className="tooltiptext">
 										{strategy.description}
 									</span>

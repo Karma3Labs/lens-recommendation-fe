@@ -6,24 +6,23 @@ export interface Profile {
 }
 
 export interface Strategy {
-	id: string
 	name: string
 	description: string
 }
 
 export const strategies = [
-	{ id: '6', name: 'Followship', description: 'This strategy emphasizes only on the relevant and meaningful follows as peer-to-peer attestations, disregarding mirrors and comments.'},
-	{ id: '3', name: 'Engagement', description: 'This strategy emphasizes on social engagements as attestations, combining follows, mirrors and comments.'},
-	{ id: '5', name: 'Influencer', description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.'},
-	{ id: '7', name: 'Creator', description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.'},
+	{ name: 'followship', description: 'This strategy emphasizes only on the relevant and meaningful follows as peer-to-peer attestations, disregarding mirrors and comments.'},
+	{ name: 'engagement', description: 'This strategy emphasizes on social engagements as attestations, combining follows, mirrors and comments.'},
+	{ name: 'influencer', description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.'},
+	// { id: '7', name: 'Creator', description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.'},
 ] satisfies Strategy[]
 
 const API_URL = 'https://lens-api.k3l.io'
 export const PER_PAGE = 100
 
-export async function globalRankings(sId: Strategy['id'], page: number) {
+export async function globalRankings(sName: Strategy['name'], page: number) {
 	const url = new URL(`${API_URL}/rankings`)
-	url.searchParams.set('strategy_id', sId)
+	url.searchParams.set('strategy', sName)
 	url.searchParams.set('offset', String((Math.max(page - 1, 0)) * PER_PAGE))
 	url.searchParams.set('limit', String(PER_PAGE))
 
@@ -43,9 +42,9 @@ export async function globalRankings(sId: Strategy['id'], page: number) {
 	return data
 }
 
-export async function rankingCounts(sId: Strategy['id']) {
+export async function rankingCounts(sName: Strategy['name']) {
 	const url = new URL(`${API_URL}/rankings_count`)
-	url.searchParams.set('strategy_id', sId)
+	url.searchParams.set('strategy', sName)
 
 	const resp = await fetch(url.toString(), {
 		headers: {
@@ -63,14 +62,14 @@ export async function rankingCounts(sId: Strategy['id']) {
 	return count
 }
 
-export async function globalRankByHandle(sId: Strategy['id'], handle: string) {
+export async function globalRankByHandle(sName: Strategy['name'], handle: string) {
 	const url = new URL(`${API_URL}/ranking_index`)
 	if (handle && !handle.endsWith('.lens')) {
 		handle = `${handle}.lens`
 	}
 		console.log('handle', handle)
 
-	url.searchParams.set('strategy_id', sId)
+	url.searchParams.set('strategy', sName)
 	url.searchParams.set('handle', handle)
 
 	const resp = await fetch(url.toString(), {
@@ -97,7 +96,7 @@ export async function globalRankByHandle(sId: Strategy['id'], handle: string) {
 export async function personalisedRankings(handle: string, page: number) {
 	const url = new URL(`${API_URL}/suggest`)
 	url.searchParams.set('handle', handle)
-	// url.searchParams.set('strategy_id', sId)
+	// url.searchParams.set('strategy', sName)
 	url.searchParams.set('offset', String((page -1) * PER_PAGE))
 	url.searchParams.set('limit', String(PER_PAGE))
 
