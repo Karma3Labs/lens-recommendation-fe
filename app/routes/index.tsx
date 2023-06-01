@@ -196,7 +196,9 @@ export default function Index() {
 						>
 							<span>{p.rank}</span>
 							<span data-profile-handle={p.handle}>
-								{p.handle}
+								<a href={
+									"https://lenster.xyz/u/" + encodeURI(p.handle)
+								} target="_blank">{p.handle}</a>
 							</span>
 							<span className="right-align">{p.followersCount}</span>
 						</div>

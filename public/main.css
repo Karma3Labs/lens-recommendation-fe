@@ -133,9 +133,13 @@ body {
 	pointer-events: none; /* Disable mouse events */
 	opacity: 0.5; /* Visually indicate disabled state */
 }
-  
+
+a {
+	text-decoration: none;
+	color: rgba(0, 0, 255, 0.8);
+}
 a:visited {
-	color: white;
+	color: rgb(128, 128, 255);
 }
 
 /* CSS */
