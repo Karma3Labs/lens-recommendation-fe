@@ -14,7 +14,7 @@ export const strategies = [
 	{ name: 'followship', description: 'This strategy emphasizes only on the relevant and meaningful follows as peer-to-peer attestations, disregarding mirrors and comments.'},
 	{ name: 'engagement', description: 'This strategy emphasizes on social engagements as attestations, combining follows, mirrors and comments.'},
 	{ name: 'influencer', description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.'},
-	// { id: '7', name: 'Creator', description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.'},
+	{ name: 'creator', description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.'},
 ] satisfies Strategy[]
 
 const API_URL = 'https://lens-api.k3l.io'
