@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { getEnv } from '~/env'
+
+global.ENV = getEnv()
 
 export default function HeaderLinks() {
 
@@ -39,7 +42,7 @@ export default function HeaderLinks() {
         if (linkBaseUrl === currentBaseUrl && linkPath === currentPath) {
           // Hide or disable the link
           // anchorLink.style.display = 'none'; // or link.disabled = true; for disabling
-          anchorLink.classList.add('disabled-link');
+          anchorLink.classList.add('current-link');
           anchorLink.addEventListener('click', (event) => event.preventDefault());
         }
       }
@@ -48,9 +51,9 @@ export default function HeaderLinks() {
   
   return (
     // JSX for rendering the header links
-    <div className='links'>
-      <a className='header-link' href='/'>Profile Rankings</a>
-      {/* <a className='header-link' href='https://content.lens.k3l.io'>Popular Content</a> */}
-  </div>
+    <div className="header-links">
+      <a className='header-link' href={ENV.PROFILE_URL}>Profiles</a>
+      <a className='header-link' href={ENV.CONTENT_URL}>Contents</a>
+    </div>
 );
 };

@@ -129,9 +129,13 @@ body {
 	text-decoration: none;
 }
 
-.disabled-link {
+.current-link {
 	pointer-events: none; /* Disable mouse events */
-	opacity: 0.5; /* Visually indicate disabled state */
+	opacity: 0.6; /* Visually indicate disabled state */
+}
+
+.current-link::before {
+	content: "▶ ";
 }
 
 a {
@@ -203,6 +207,7 @@ button {
 	right: 48px;
 	animation: rotate 1s linear infinite;
 }
+
 .loader::before {
 	content: '';
 	box-sizing: border-box;
@@ -256,6 +261,21 @@ header {
 	padding: 1%;
 	background-color: #2a2a72;
 	background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+}
+
+.header-links {
+	width: 100%;
+	text-align: right;
+}
+
+a.header-link {
+	text-align: end;
+	font-size: 18px;
+	font-weight: 500;
+	text-decoration: none;
+	color: white;
+	padding: 0 0.5em;
+	text-decoration: none;
 }
 
 .logos {

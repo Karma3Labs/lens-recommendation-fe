@@ -17,8 +17,11 @@ import {
 import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
 import HeaderLinks from '~/components/HeaderLinks'
+import { getEnv } from '~/env'
 
 const DEFAULT_STRATEGY = 'followship'
+
+global.ENV = getEnv()
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
@@ -86,7 +89,10 @@ export default function Index() {
 		<main>
 			<LoadingIndicator />
 			<header>
-				{/* <HeaderLinks /> */}
+				<div className="header-links">
+					<a className='header-link current-link' href={ENV.PROFILE_URL}>Profiles</a>
+					<a className='header-link' href={ENV.CONTENT_URL}>Contents</a>
+				</div>
 				<div className="logos logos-grid">
 					<div className='logo-container-1'>
 						<a href="https://k3l.io" target="_blank">
