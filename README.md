@@ -1,4 +1,4 @@
-# Lens Recommendation Front-end
+# Lens Profile Recommendation Front-end
 
 - [Remix Docs](https://remix.run/docs)
 
