@@ -21,7 +21,7 @@ const API_URL = 'https://lens-api.k3l.io'
 export const PER_PAGE = 100
 
 export async function globalRankings(sName: Strategy['name'], page: number) {
-	const url = new URL((process.env.API_URL || API_URL) + `/profile_scores`)
+	const url = new URL((process.env.API_URL || API_URL) + `/profile/scores`)
 	url.searchParams.set('strategy', sName)
 	url.searchParams.set('offset', String((Math.max(page - 1, 0)) * PER_PAGE))
 	url.searchParams.set('limit', String(PER_PAGE))
@@ -43,7 +43,7 @@ export async function globalRankings(sName: Strategy['name'], page: number) {
 }
 
 export async function rankingCounts(sName: Strategy['name']) {
-	const url = new URL((process.env.API_URL || API_URL) + `/profile_count`)
+	const url = new URL((process.env.API_URL || API_URL) + `/profile/count`)
 	url.searchParams.set('strategy', sName)
 
 	const resp = await fetch(url.toString(), {
@@ -63,7 +63,7 @@ export async function rankingCounts(sName: Strategy['name']) {
 }
 
 export async function globalRankByHandle(sName: Strategy['name'], handle: string) {
-	const url = new URL((process.env.API_URL || API_URL) + `/profile_rank`)
+	const url = new URL((process.env.API_URL || API_URL) + `/profile/rank`)
 	if (handle && !handle.endsWith('.lens')) {
 		handle = `${handle}.lens`
 	}
