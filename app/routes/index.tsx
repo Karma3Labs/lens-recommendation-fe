@@ -129,7 +129,7 @@ export default function Index() {
 								searchParams.toString(),
 							)
 							sp.set('strategy', strategy.name)
-
+							sp.delete('page')
 							const capitalizeFirst = (str: string) => 
 								str.charAt(0).toUpperCase() + str.slice(1);
 
