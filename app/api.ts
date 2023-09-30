@@ -13,36 +13,36 @@ export interface Strategy {
 
 export const strategies = [
 	{ name: 'followship', 
-		description: 'This strategy emphasizes only on the relevant and meaningful follows as peer-to-peer attestations, disregarding mirrors and comments.',
+		description: 'This strategy emphasizes follows as peer-to-peer attestations, disregarding other engagements like replices, mirrors and comments.',
 		id: 'followship'
 	},
-	{ name: 'active Followship', 
-		description: 'Similar to the followship strategy, but exponentially decays the importance of a follow over time.',
-		id: 'activeFollowship'
+	{ name: 'community Followship', 
+		description: 'Similar to the followship strategy, with community members having more influence than OGs.',
+		id: 'communityFollowship'
 	},
 	{ name: 'engagement', 
 		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments.',
 		id: 'engagement'
 	},
-	{ name: 'active Engagement', 
-		description: 'Similar to the engagement strategy, but exponentially decays the importance of engagements over time.',
-		id: 'activeEngagement'
+	{ name: 'community Engagement', 
+		description: 'Similar to the engagement strategy, with community members having more influence than OGs.',
+		id: 'communityEngagement'
 	},
 	{ name: 'influencer', 
 		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
 		id: 'influencer'
 	},
-	{ name: 'active Influencer', 
-		description: 'Similar to the influencer strategy, but exponentially decays the importance of engagements over time.',
-		id: 'activeInfluencer'
+	{ name: 'community Influencer', 
+		description: 'Similar to the influencer strategy, with community members having more influence than OGs.',
+		id: 'communityInfluencer'
 	},
 	{ name: 'creator', 
 		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
 		id: 'creator'
 	},
-	{ name: 'active Creator', 
-		description: 'Similar to the creator strategy, but exponentially decays the importance of engagements over time.',
-		id: 'activeCreator'
+	{ name: 'community Creator', 
+		description: 'Similar to the creator strategy, with community members having more influence than OGs.',
+		id: 'communityCreator'
 	},
 ] satisfies Strategy[]
 
