@@ -12,37 +12,41 @@ export interface Strategy {
 }
 
 export const strategies = [
-	{ name: 'followship', 
-		description: 'This strategy emphasizes follows as peer-to-peer attestations, disregarding other engagements like replices, mirrors and comments.',
-		id: 'followship'
+	{ name: 'Photography & Art Engagement',
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. Photographers and Artists heavily influence this ranking',
+		id: 'community1Engagement'
 	},
-	{ name: 'community Followship', 
-		description: 'Similar to the followship strategy, with community members having more influence than OGs.',
-		id: 'communityFollowship'
-	},
-	{ name: 'engagement', 
-		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments.',
-		id: 'engagement'
-	},
-	{ name: 'community Engagement', 
-		description: 'Similar to the engagement strategy, with community members having more influence than OGs.',
-		id: 'communityEngagement'
-	},
-	{ name: 'influencer', 
+	{ name: 'Photography & Art Influencers',
 		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
-		id: 'influencer'
+		id: 'community1Influencer'
 	},
-	{ name: 'community Influencer', 
-		description: 'Similar to the influencer strategy, with community members having more influence than OGs.',
-		id: 'communityInfluencer'
-	},
-	{ name: 'creator', 
+	{ name: 'Photography & Art Creators',
 		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
-		id: 'creator'
+		id: 'community1Creator'
 	},
-	{ name: 'community Creator', 
-		description: 'Similar to the creator strategy, with community members having more influence than OGs.',
-		id: 'communityCreator'
+	{ name: 'Community2 Engagement',
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. Community2 heavily influences this ranking',
+		id: 'community2Engagement'
+	},
+	{ name: 'Community2 Influencers',
+		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
+		id: 'community2Influencer'
+	},
+	{ name: 'Community2 Creators',
+		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
+		id: 'community2Creator'
+	},
+	{ name: 'Community3 Engagement',
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. Community3 heavily influences this ranking',
+		id: 'community3Engagement'
+	},
+	{ name: 'Community3 Influencers',
+		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
+		id: 'community3Influencer'
+	},
+	{ name: 'Community3 Creators',
+		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
+		id: 'community3Creator'
 	},
 ] satisfies Strategy[]
 
