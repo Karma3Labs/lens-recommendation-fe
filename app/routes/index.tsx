@@ -19,7 +19,7 @@ import Pagination from '~/components/Pagination'
 import HeaderLinks from '~/components/HeaderLinks'
 import { getEnv } from '~/env'
 
-const DEFAULT_STRATEGY = 'followship'
+const DEFAULT_STRATEGY = 'Photography+%26+Art+Engagement'
 
 global.ENV = getEnv()
 
