@@ -24,27 +24,27 @@ export const strategies = [
 		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
 		id: 'community1Creator'
 	},
-	{ name: 'Community2 Engagement',
-		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. Community2 heavily influences this ranking',
+	{ name: 'DeFi Engagement',
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. The DeFi community heavily influences this ranking',
 		id: 'community2Engagement'
 	},
-	{ name: 'Community2 Influencers',
+	{ name: 'DeFi Influencers',
 		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
 		id: 'community2Influencer'
 	},
-	{ name: 'Community2 Creators',
+	{ name: 'DeFi Creators',
 		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
 		id: 'community2Creator'
 	},
-	{ name: 'Community3 Engagement',
-		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. Community3 heavily influences this ranking',
+	{ name: 'Anime Engagement',
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. The Anime community heavily influences this ranking',
 		id: 'community3Engagement'
 	},
-	{ name: 'Community3 Influencers',
+	{ name: 'Anime Influencers',
 		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
 		id: 'community3Influencer'
 	},
-	{ name: 'Community3 Creators',
+	{ name: 'Anime Creators',
 		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
 		id: 'community3Creator'
 	},
