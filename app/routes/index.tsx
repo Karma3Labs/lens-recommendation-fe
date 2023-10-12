@@ -22,7 +22,7 @@ import { getEnv } from '~/env'
 const DEFAULT_STRATEGY = 'og01f1c8m3col12PriceTimed'
 
 global.ENV = getEnv()
-export const maxDuration = 30;
+
 export const config = { maxDuration: 42 };
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
