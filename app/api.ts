@@ -12,41 +12,17 @@ export interface Strategy {
 }
 
 export const strategies = [
-	{ name: 'Photography & Art Engagement',
-		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. Photographers and Artists heavily influence this ranking',
-		id: 'community1Engagement'
-	},
-	{ name: 'Photography & Art Influencers',
-		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
-		id: 'community1Influencer'
-	},
 	{ name: 'Photography & Art Creators',
-		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
-		id: 'community1Creator'
-	},
-	{ name: 'DeFi Engagement',
-		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. The DeFi community heavily influences this ranking',
-		id: 'community2Engagement'
-	},
-	{ name: 'DeFi Influencers',
-		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
-		id: 'community2Influencer'
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies, comments and NFT collect prices. Photographers and Artists heavily influence this ranking.',
+		id: 'photoArtCreator'
 	},
 	{ name: 'DeFi Creators',
-		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
-		id: 'community2Creator'
-	},
-	{ name: 'Anime Engagement',
-		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies and comments. The Anime community heavily influences this ranking',
-		id: 'community3Engagement'
-	},
-	{ name: 'Anime Influencers',
-		description: 'Similar to the engagement strategy, but adds another datapoint where posts can be turned into NFT collections by influencers.',
-		id: 'community3Influencer'
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies, comments and NFT collect prices. The DeFi community heavily influences this ranking.',
+		id: 'defiCreator'
 	},
 	{ name: 'Anime Creators',
-		description: 'Similar to the influencer strategy, we add another datapoint where NFT collections have a price associated in secondary markets.',
-		id: 'community3Creator'
+		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies, comments and NFT collect prices. The Anime community heavily influences this ranking.',
+		id: 'animeCreator'
 	},
 ] satisfies Strategy[]
 
