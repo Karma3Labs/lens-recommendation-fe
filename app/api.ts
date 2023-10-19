@@ -11,6 +11,7 @@ export interface Strategy {
 	id: string
 }
 
+export const DEFAULT_STRATEGY='Photography & Art Creators'
 export const strategies = [
 	{ name: 'Photography & Art Creators',
 		description: 'This strategy emphasizes social engagements as attestations, combining follows, mirrors, replies, comments and NFT collect prices. Photographers and Artists heavily influence this ranking.',
