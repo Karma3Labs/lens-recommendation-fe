@@ -7,7 +7,6 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react'
-import { getEnv } from '~/env'
 
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
@@ -34,9 +33,17 @@ export const links: LinksFunction = () => [
 	},
 ]
 
-export default function App() {
-	global.ENV = getEnv()
+export function getEnv() {
+	return {
+		ENV: {
+			PROFILE_URL: process.env.PROFILE_URL || "https://lens.k3l.io",
+			CONTENT_URL: process.env.CONTENT_URL || "https://content.lens.k3l.io",
+		},
+	};
+}
 
+export default function App() {
+	const data = getEnv()
 	return (
 		<html lang="en">
 			<head>
@@ -59,7 +66,7 @@ export default function App() {
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-
+window.ENV = ${JSON.stringify(data.ENV)};
 gtag('config', 'G-DBN8023PFS');`,
 					}}
 				></script>
