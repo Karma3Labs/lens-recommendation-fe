@@ -90,8 +90,8 @@ export default function Index() {
 			<LoadingIndicator />
 			<header>
 				<div className="header-links">
-					<a className='header-link current-link' href={window.ENV.PROFILE_URL}>Profiles</a>
-					<a className='header-link' href={window.ENV.CONTENT_URL}>Contents</a>
+					<a className='header-link current-link' href='window.ENV.PROFILE_URL'>Profiles</a>
+					<a className='header-link' href='window.ENV.CONTENT_URL'>Contents</a>
 				</div>
 				<div className="logos logos-grid">
 					<div className='logo-container-1'>

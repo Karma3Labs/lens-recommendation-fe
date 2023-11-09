@@ -52,8 +52,8 @@ export default function HeaderLinks() {
   return (
     // JSX for rendering the header links
     <div className="header-links">
-      <a className='header-link' href={window.ENV.PROFILE_URL}>Profiles</a>
-      <a className='header-link' href={window.ENV.CONTENT_URL}>Contents</a>
+      <a className='header-link' href='window.ENV.PROFILE_URL'>Profiles</a>
+      <a className='header-link' href='window.ENV.CONTENT_URL'>Contents</a>
     </div>
 );
 };
