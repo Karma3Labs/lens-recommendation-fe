@@ -17,11 +17,8 @@ import {
 import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
 import HeaderLinks from '~/components/HeaderLinks'
-import { getEnv } from '~/env'
 
 const DEFAULT_STRATEGY = 'followship'
-
-// global.ENV = getEnv()
 
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)

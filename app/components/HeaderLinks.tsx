@@ -1,7 +1,4 @@
 import { useEffect } from 'react';
-import { getEnv } from '~/env'
-
-// global.ENV = getEnv()
 
 export default function HeaderLinks() {
 
