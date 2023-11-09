@@ -1,5 +1,7 @@
 import type { LinksFunction, MetaFunction } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import {
+	useLoaderData,
 	Links,
 	LiveReload,
 	Meta,
@@ -33,17 +35,17 @@ export const links: LinksFunction = () => [
 	},
 ]
 
-export function getEnv() {
-	return {
-		ENV: {
+export const loader = async () => {
+  return json({
+    ENV: {
 			PROFILE_URL: process.env.PROFILE_URL || "https://lens.k3l.io",
 			CONTENT_URL: process.env.CONTENT_URL || "https://content.lens.k3l.io",
-		},
-	};
-}
+    },
+  });
+};
 
 export default function App() {
-	const data = getEnv()
+	const data = useLoaderData<typeof loader>();
 	return (
 		<html lang="en">
 			<head>
