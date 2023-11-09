@@ -17,6 +17,9 @@ import {
 import LoadingIndicator from '~/components/LoadingIndicator'
 import Pagination from '~/components/Pagination'
 import HeaderLinks from '~/components/HeaderLinks'
+import getEnv from '../getEnv'
+
+const env = getEnv();
 
 const DEFAULT_STRATEGY = 'followship'
 
@@ -87,8 +90,8 @@ export default function Index() {
 			<LoadingIndicator />
 			<header>
 				<div className="header-links">
-					<a className='header-link current-link' href={process.env.PROFILE_URL}>Profiles</a>
-					<a className='header-link' href={process.env.CONTENT_URL}>Contents</a>
+					<a className='header-link current-link' href={env.PROFILE_URL}>Profiles</a>
+					<a className='header-link' href={env.CONTENT_URL}>Contents</a>
 				</div>
 				<div className="logos logos-grid">
 					<div className='logo-container-1'>

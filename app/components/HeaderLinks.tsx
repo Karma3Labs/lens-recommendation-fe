@@ -1,4 +1,7 @@
 import { useEffect } from 'react';
+import getEnv from '../getEnv'
+
+const env = getEnv();
 
 export default function HeaderLinks() {
 
@@ -49,8 +52,8 @@ export default function HeaderLinks() {
   return (
     // JSX for rendering the header links
     <div className="header-links">
-      <a className='header-link' href={process.env.PROFILE_URL}>Profiles</a>
-      <a className='header-link' href={process.env.CONTENT_URL}>Contents</a>
+      <a className='header-link' href={env.PROFILE_URL}>Profiles</a>
+      <a className='header-link' href={env.CONTENT_URL}>Contents</a>
     </div>
 );
 };
