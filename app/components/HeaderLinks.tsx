@@ -1,9 +1,16 @@
 import { useEffect } from 'react';
-import { getEnv } from '~/env'
+import { useLoaderData,} from '@remix-run/react'
+import { json } from "@remix-run/node"
 
-global.ENV = getEnv()
+export async function loader() {
+  return json({
+    profileURL: process.env.PROFILE_URL,
+    contentURL: process.env.CONTENT_URL,
+  })
+}
 
 export default function HeaderLinks() {
+  const data = useLoaderData<typeof loader>()
 
   useEffect(() => {
     // Code for hiding or disabling the links
@@ -15,7 +22,7 @@ export default function HeaderLinks() {
 
     headerLinks.forEach((link: Element) => {
       const anchorLink = link as HTMLAnchorElement; // Explicitly cast to HTMLAnchorElement
-    
+
       const linkUrl = anchorLink.getAttribute('href'); // Get the link's URL
 
       if (linkUrl !== null) {
@@ -48,12 +55,12 @@ export default function HeaderLinks() {
       }
     });
   }, []);
-  
+
   return (
     // JSX for rendering the header links
     <div className="header-links">
-      <a className='header-link' href={ENV.PROFILE_URL}>Profiles</a>
-      <a className='header-link' href={ENV.CONTENT_URL}>Contents</a>
+      <a className='header-link' href={data.profileURL}>Profiles</a>
+      <a className='header-link' href={data.contentURL}>Contents</a>
     </div>
 );
 };

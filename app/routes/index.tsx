@@ -21,8 +21,6 @@ import { getEnv } from '~/env'
 
 const DEFAULT_STRATEGY = 'followship'
 
-global.ENV = getEnv()
-
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
 	const strategy = url.searchParams.get('strategy') || DEFAULT_STRATEGY
@@ -58,6 +56,8 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 			handle,
 			handleRank,
+			profileURL: process.env.PROFILE_URL,
+			contentURL: process.env.CONTENT_URL,
 		}
 	}
 
@@ -69,10 +69,13 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 		handle,
 		handleRank,
+		profileURL: process.env.PROFILE_URL,
+		contentURL: process.env.CONTENT_URL,
 	}
 }
 
 export default function Index() {
+
 	const data = useLoaderData<typeof loader>()
 	const navigate = useNavigate()
 	const [searchParams] = useSearchParams()
@@ -90,8 +93,8 @@ export default function Index() {
 			<LoadingIndicator />
 			<header>
 				<div className="header-links">
-					<a className='header-link current-link' href={ENV.PROFILE_URL}>Profiles</a>
-					<a className='header-link' href={ENV.CONTENT_URL}>Contents</a>
+					<a className='header-link current-link' href={data.profileURL}>Profiles</a>
+					<a className='header-link' href={data.contentURL}>Contents</a>
 				</div>
 				<div className="logos logos-grid">
 					<div className='logo-container-1'>
@@ -122,7 +125,7 @@ export default function Index() {
 				</div>
 			</header>
 			<div className="container">
-				<div className="tools"> 
+				<div className="tools">
 					<div className="strategies">
 						{strategies.map((strategy: Strategy) => {
 							const sp = new URLSearchParams(

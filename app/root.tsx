@@ -6,9 +6,7 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
-	useLoaderData,
 } from '@remix-run/react'
-import { json } from "@remix-run/node"
 
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
@@ -35,17 +33,7 @@ export const links: LinksFunction = () => [
 	},
 ]
 
-export async function loader() {
-	return json({
-	  ENV: {
-		PROFILE_URL: process.env.PROFILE_URL,
-		CONTENT_URL: process.env.CONTENT_URL,
-	  },
-	});
-  }
-
 export default function App() {
-	const data = useLoaderData<typeof loader>()
 	return (
 		<html lang="en">
 			<head>
@@ -69,10 +57,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
-gtag('config', 'G-DBN8023PFS');
-
-window.ENV = ${JSON.stringify(data.ENV)};
-`,
+gtag('config', 'G-DBN8023PFS');`,
 					}}
 				></script>
 			</body>

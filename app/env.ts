@@ -1,7 +1,7 @@
 export function getEnv() {
     return {
-        PROFILE_URL: window.ENV?.PROFILE_URL || "https://lens.k3l.io",
-        CONTENT_URL: window.ENV?.CONTENT_URL || "https://content.lens.k3l.io",
+        PROFILE_URL: process.env.PROFILE_URL || "https://lens.k3l.io",
+        CONTENT_URL: process.env.CONTENT_URL || "https://content.lens.k3l.io",
     }
 }
 
