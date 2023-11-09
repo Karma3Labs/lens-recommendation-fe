@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { getEnv } from '~/env'
 
+global.ENV = getEnv()
 
 export default function HeaderLinks() {
-  global.ENV = getEnv()
 
   useEffect(() => {
     // Code for hiding or disabling the links

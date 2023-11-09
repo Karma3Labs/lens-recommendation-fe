@@ -21,6 +21,8 @@ import { getEnv } from '~/env'
 
 const DEFAULT_STRATEGY = 'followship'
 
+global.ENV = getEnv()
+
 export const loader = async ({ request }: LoaderArgs) => {
 	const url = new URL(request.url)
 	const strategy = url.searchParams.get('strategy') || DEFAULT_STRATEGY
@@ -71,7 +73,6 @@ export const loader = async ({ request }: LoaderArgs) => {
 }
 
 export default function Index() {
-	global.ENV = getEnv()
 	const data = useLoaderData<typeof loader>()
 	const navigate = useNavigate()
 	const [searchParams] = useSearchParams()
