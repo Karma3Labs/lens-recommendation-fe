@@ -7,6 +7,7 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react'
+import { getEnv } from '~/env'
 
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
@@ -34,6 +35,8 @@ export const links: LinksFunction = () => [
 ]
 
 export default function App() {
+	global.ENV = getEnv()
+
 	return (
 		<html lang="en">
 			<head>

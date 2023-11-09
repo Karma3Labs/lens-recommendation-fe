@@ -21,9 +21,9 @@ import { getEnv } from '~/env'
 
 const DEFAULT_STRATEGY = 'followship'
 
+// global.ENV = getEnv()
 
 export const loader = async ({ request }: LoaderArgs) => {
-	global.ENV = getEnv()
 	const url = new URL(request.url)
 	const strategy = url.searchParams.get('strategy') || DEFAULT_STRATEGY
 	let page = url.searchParams.get('page')
