@@ -82,9 +82,7 @@ export async function rankingCounts(sName: Strategy['name']) {
 
 export async function globalRankByHandle(sName: Strategy['name'], handle: string) {
 	const url = new URL((process.env.API_URL || API_URL) + `/profile/rank`)
-	if (handle && !handle.endsWith('.lens')) {
-		handle = `${handle}.lens`
-	}
+
 		console.log('handle', handle)
 
 		url.searchParams.set('strategy', String(getStrategyId(sName)))
