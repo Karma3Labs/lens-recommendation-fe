@@ -1,11 +1,6 @@
 # Lens Profile Recommendation Front-end
 
-- [Remix Docs](https://remix.run/docs)
+The code behind [Lens Profile Rankings](https://lens.k3l.io/). This is a [Remix](https://remix.run/docs) app.
 
 
-## Instructions
-
-```sh
-npm run dev
-```
 
