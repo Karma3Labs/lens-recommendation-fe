@@ -95,7 +95,7 @@ export default function Index() {
 						<a href="https://k3l.io" target="_blank">
 							<img
 								width="180px"
-								src="/logo.svg"
+								src="/OpenRank_transparent.png"
 								draggable="false"
 								alt="Karma3Labs Logo"
 							/>
@@ -105,8 +105,8 @@ export default function Index() {
 					<div className='logo-container-2'>
 						<a href="https://www.lens.xyz/" target="_blank">
 							<img
-								width="50px"
-								src="/lens.svg"
+								width="180px"
+								src="/lens_white.png"
 								draggable="false"
 								alt="Karma3Labs Logo"
 							/>

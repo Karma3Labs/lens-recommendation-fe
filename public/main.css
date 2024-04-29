@@ -5,6 +5,7 @@
 *::after {
 	box-sizing: border-box;
 }
+
 * {
 	margin: 0;
 }
@@ -69,6 +70,7 @@ h6 {
 	h1 {
 		font-size: 64px;
 	}
+
 	h6 {
 		font-size: 16px;
 	}
@@ -105,7 +107,8 @@ body {
 
 .visuallyhidden {
 	position: absolute !important;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px 1px 1px 1px);
+	/* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);
 	padding: 0 !important;
 	border: 0 !important;
@@ -130,8 +133,10 @@ body {
 }
 
 .current-link {
-	pointer-events: none; /* Disable mouse events */
-	opacity: 0.6; /* Visually indicate disabled state */
+	pointer-events: none;
+	/* Disable mouse events */
+	opacity: 0.6;
+	/* Visually indicate disabled state */
 }
 
 .current-link::before {
@@ -142,41 +147,42 @@ a {
 	text-decoration: none;
 	color: rgba(0, 0, 255, 0.8);
 }
+
 a:visited {
 	color: rgb(128, 128, 255);
 }
 
 /* CSS */
 .btn {
-  align-items: center;
-  appearance: none;
-  background-color: #fff;
-  border-radius: 12px;
-  border-style: none;
-  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-  box-sizing: border-box;
-  color: #3c4043;
-  cursor: pointer;
-  display: inline-flex;
-  fill: currentcolor;
-  font-size: 15px;
-  height: 40px;
-  justify-content: center;
-  letter-spacing: .25px;
-  line-height: normal;
-  max-width: 100%;
-  overflow: visible;
-  padding: 2px 24px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: auto;
-  will-change: transform,opacity;
-  z-index: 0;
+	align-items: center;
+	appearance: none;
+	background-color: #fff;
+	border-radius: 12px;
+	border-style: none;
+	box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(0, 0, 0, .14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
+	box-sizing: border-box;
+	color: #3c4043;
+	cursor: pointer;
+	display: inline-flex;
+	fill: currentcolor;
+	font-size: 15px;
+	height: 40px;
+	justify-content: center;
+	letter-spacing: .25px;
+	line-height: normal;
+	max-width: 100%;
+	overflow: visible;
+	padding: 2px 24px;
+	position: relative;
+	text-align: center;
+	text-transform: none;
+	transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1), opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	width: auto;
+	will-change: transform, opacity;
+	z-index: 0;
 }
 
 .btn-search {
@@ -228,22 +234,24 @@ button {
 	0% {
 		clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
 	}
+
 	25% {
 		clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
 	}
+
 	50% {
-		clip-path: polygon(
-			50% 50%,
-			0 0,
-			100% 0,
-			100% 100%,
-			100% 100%,
-			100% 100%
-		);
+		clip-path: polygon(50% 50%,
+				0 0,
+				100% 0,
+				100% 100%,
+				100% 100%,
+				100% 100%);
 	}
+
 	75% {
 		clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
 	}
+
 	100% {
 		clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
 	}
@@ -283,7 +291,8 @@ a.header-link {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100px; /* adjust this value as needed */
+	height: 100px;
+	/* adjust this value as needed */
 }
 
 .logos-grid {
@@ -293,22 +302,22 @@ a.header-link {
 
 
 .logo-container-1 {
-    flex: 1;
+	flex: 1;
 	padding-right: 20px;
-    text-align: right;
+	text-align: right;
 }
 
 .logo-container-2 {
-    flex: 1;
-	padding-left: 20px;
-    text-align: left;
+	flex: 1;
+	text-align: left;
 }
 
 .line {
-    width: 1px;
-    height: 50%; /* adjust this value as needed */
-    background-color: #ffffff;
-    align-self: center;
+	width: 1px;
+	height: 50%;
+	/* adjust this value as needed */
+	background-color: #ffffff;
+	align-self: center;
 }
 
 .tools {
@@ -334,11 +343,11 @@ a.header-link {
 }
 
 .column-names::after {
-    content: "";
-    display: block;
-    height: 1px;
-    background-color: #d4e4e4;
-    grid-column: span 3;
+	content: "";
+	display: block;
+	height: 1px;
+	background-color: #d4e4e4;
+	grid-column: span 3;
 }
 
 .strategies {
@@ -372,7 +381,7 @@ header form {
 	padding: 20px 10%;
 }
 
-.profiles-grid > div {
+.profiles-grid>div {
 	display: contents;
 }
 
@@ -425,7 +434,8 @@ header form {
 .tooltip {
 	position: relative;
 	display: inline-block;
-	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+	border-bottom: 1px dotted black;
+	/* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
@@ -441,7 +451,8 @@ header form {
 	width: 150%;
 	bottom: 110%;
 	left: 0%;
-	margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	margin-left: -60px;
+	/* Use half of the width (120/2 = 60), to center the tooltip */
 
 	/* Position the tooltip text - see examples below! */
 	position: absolute;
