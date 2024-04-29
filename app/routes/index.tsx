@@ -92,7 +92,7 @@ export default function Index() {
 				</div>
 				<div className="logos logos-grid">
 					<div className='logo-container-1'>
-						<a href="https://k3l.io" target="_blank">
+						<a href="https://openrank.com" target="_blank">
 							<img
 								width="180px"
 								src="/OpenRank_transparent.png"

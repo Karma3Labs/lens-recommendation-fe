@@ -40,7 +40,7 @@ export default function Suggest() {
 				<HeaderLinks />
 				<div className="logos">
 					<div className='logo-container-1'>
-						<a href="https://k3l.io" target="_blank">
+						<a href="https://openrank.com" target="_blank">
 							<img
 								width="180px"
 								src="/logo.svg"
